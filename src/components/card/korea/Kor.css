@@ -1,0 +1,35 @@
+img{
+    width: 155px;
+    border: 0;
+}
+
+.container{
+    width: 445px;
+    height: 267.94px;
+    background-color: #FFF;
+    font-family: Noto Snans KR;
+    position: relative;
+    border: 1px solid rgb(197, 197, 197);
+
+}
+
+.logo{
+    margin-left: 25px;
+    margin-top: 20px;
+}
+
+.name_01{
+    margin-left: 32px;
+}
+
+.name_02{
+    margin-left: 32px;
+}
+
+.name_03{
+    margin-left: 32px;
+}
+
+.name_04{
+    margin-left: 32px;
+}
