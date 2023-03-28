@@ -1,35 +1,73 @@
 img{
     width: 155px;
-    border: 0;
+    outline: none;
 }
 
-.container{
+.container_c{
     width: 445px;
     height: 267.94px;
     background-color: #FFF;
     font-family: Noto Snans KR;
+    color: black;
     position: relative;
     border: 1px solid rgb(197, 197, 197);
+    line-height: none;
 
 }
 
-.logo{
+.logo_c{
     margin-left: 25px;
-    margin-top: 20px;
+    margin-top: 26px;
+}
+
+
+.f_flex{
+    display: flex;
+}
+
+#r_part{
+    margin-top: 50px;
+    font-family: Noto Snans KR;
+    color: rgba(59, 54, 54, 0.905);
+}
+
+#l_part{
+    text-align: right;
+    margin-right: 32px;
+    margin-top: 28px;
+    font-size: 0.7px;
+}
+#l_part p{
+    display: inline;
+}
+#border_line{
+    border-bottom: 1px black solid;
 }
 
 .name_01{
+    font-size: 19px;
+    font-weight: 550;
     margin-left: 32px;
 }
 
 .name_02{
+    margin-top: 0.5px;
     margin-left: 32px;
+    font-size: 12px;
+    font-weight: 500;
 }
 
 .name_03{
     margin-left: 32px;
+    font-size: 13px;
+    font-weight: 500;
+
 }
 
 .name_04{
     margin-left: 32px;
+}
+
+.infor{
+    font-size: 9.6px;
 }
