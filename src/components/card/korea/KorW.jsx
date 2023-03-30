@@ -61,4 +61,6 @@ const KorW = () => {
 // 6mm = 22.2px
 // 50mm = 185px
 // 90mm = 333px
+
+// Notion , JWP , API , Flutter
 export default KorW;
