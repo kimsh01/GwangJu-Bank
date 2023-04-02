@@ -1,6 +1,5 @@
 import './App.css';
 import { BrowserRouter, Routes, Route, Link, Navigate, useNavigate } from 'react-router-dom';
-import Order from '../src/components/order/Order';
 import Body from '../src/components/order/Body';
 import Confirm from '../src/components/order/Confirm';
 import Deliver from '../src/components/order/Deliver';
@@ -14,7 +13,7 @@ function App() {
 
   return (
       <div className='C_container'>
-          <KorW />    
+          <Confirm />    
       </div>
   );
 }

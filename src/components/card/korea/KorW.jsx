@@ -9,7 +9,7 @@ const KorW = () => {
                 <div className='f_flex'>
                     <div id='f_wrap'>
                         <div className='logo_c'>
-                            <img src={Logo} alt='' />
+                            <img src={Logo} alt='' id='k_logo' />
                         </div>
                             <form id='r_part'>
                                 <span className='name_01'>홍 길 동</span>

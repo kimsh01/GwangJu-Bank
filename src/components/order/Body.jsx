@@ -1,7 +1,7 @@
 import React from 'react';
 import { useState } from 'react';
 import { Routes, Router, Route, Link, Navigate, useNavigate } from 'react-router-dom'
-import '../common/Order.css';
+import './Body.css';
 import Deliver from '../order/Deliver';
 import Load from '../assets/imgs/명함주문_img/ajax-loader.gif';
 import Bank from '../assets/imgs/명함주문_img/bank_logo.jpg';

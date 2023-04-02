@@ -1,6 +1,6 @@
 import React from 'react';
 import { Routes, Route, Link } from 'react-router-dom'
-import '../common/Order.css';
+import './Confirm.css';
 import Bank from '../assets/imgs/명함주문_img/bank_logo.jpg';
 import Check from '../assets/imgs/명함주문_img/check.png';
 import Newn1 from '../assets/imgs/명함주문_img/202312122722kjbuser_2.jpg';
