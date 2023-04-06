@@ -1,5 +1,5 @@
 import React from 'react';
-import './Login.css';
+import styles from './Login.module.css';
 import Logo from '../assets/imgs/로그인_img/main_bank_logo.png';
 import Select from '../assets/imgs/로그인_img/select.png';
 import Pass from '../assets/imgs/로그인_img/pass.png';
@@ -13,9 +13,9 @@ const Login = () => {
 
     return (
         <>
-            <div id="wrap">
-				<div className="login">  
-					<div className='top_logo'>
+            <div id={styles.wrap}>
+				<div className={styles.login}>  
+					<div className={styles.login_logo}>
 						<h1>
 							<img src={Logo} alt='' />
 							<br />명함주문시스템
@@ -25,30 +25,30 @@ const Login = () => {
 					<form name="loginForm" id="loginForm" action="http://kjbank.qpop.deals/01_main/login_ok.php" method="post">
 						<div className="input">
 							
-							<div className="blockinput">
+							<div className={styles.blockinput}>
 								<img src={Select} alt='' id='img02' />
 								
-								<select name="key" id="userid" className="inp">
+								<select name="key" id="userid" className={styles.inp}>
 									<option value="kjbuser">광주은행</option>
 									<option value="kjbadmin">광주은행관리자</option>
 								</select>
 							</div>
 
-							<div className="blockinput">      
+							<div className={styles.blockinput}>      
 								<img src={Pass} alt='' id='img03' />
-								<input name="value" id="password" type="password" placeholder="비밀번호" value="" className="inp" />
+								<input className={styles.login_input} name="value" id="password" type="password" placeholder="비밀번호" value="" />
 							</div>
 						</div>
 							
 						
 
-						<button id="btnLogin">Login</button>
+						<button id={styles.btnLogin}>Login</button>
 
 					</form>
 
-					<p className='add' onClick={clickAdd} ><a href=''>즐겨찾기 추가하기</a></p>
+					<p className={styles.add} onClick={clickAdd} ><a href=''>즐겨찾기 추가하기</a></p>
 
-					<div className="logo"><p>Copyright © SungMoonDang. All Rights Reserved.</p></div>
+					<div className={styles.logo}><p>Copyright © SungMoonDang. All Rights Reserved.</p></div>
 				</div>
 			</div>
         </>

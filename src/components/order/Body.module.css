@@ -26,7 +26,11 @@ tr {
 	color: #777; line-height: 138%; letter-spacing: 0pt; font-family: 돋움; font-size: 9pt;
 }
 td {
-	color: #777; line-height: 138%; letter-spacing: 0pt; font-family: 돋움; font-size: 9pt;
+	color: #777; 
+	line-height: 138%; 
+	letter-spacing: 0pt; 
+	font-family: 돋움; 
+	font-size: 9pt;
 	padding-left: 5px;
 	padding-bottom: 3px;
 }
@@ -40,7 +44,11 @@ select {
 	font-family: 돋움;
 }
 input {
-	color: #777; line-height: 138%; letter-spacing: 0pt; font-family: 돋움; font-size: 9pt;
+	color: #777; 
+	line-height: 138%; 
+	letter-spacing: 0pt; 
+	font-family: 돋움; 
+	font-size: 9pt;
 }
 form {
 	color: #777; line-height: 138%; letter-spacing: 0pt; font-family: "나눔고딕", "굴림"; font-size: 13pt;
@@ -97,7 +105,6 @@ a:hover { color: #208ec1; text-decoration: none; }
 	height: 46px; 
 	margin-top: 0px;
 	padding-top: 10px;
-
 }
 .container_top{
 	height: 0px;
@@ -324,10 +331,29 @@ tbody{
 .tb03 tbody tr th span{
 	color: red;
 }
+
 .input02{
 	border: 1px solid #d0d0d0;
     width: 93%;
-    height: 18px;
+    height: 23.6px;
+    padding-top: 4px;
+    padding-left: 5px;
+    margin-top: 3px;
+    background-color: #fff;
+}
+.input02_1{
+	border: 1px solid #d0d0d0;
+    width: 27.1%;
+    height: 23.6px;
+    padding-top: 4px;
+    padding-left: 5px;
+    margin-top: 3px;
+    background-color: #fff;
+}
+.input02_2{
+	border: 1px solid #d0d0d0;
+    width: 43.1%;
+    height: 23.6px;
     padding-top: 4px;
     padding-left: 5px;
     margin-top: 3px;
@@ -350,17 +376,13 @@ tbody{
     margin-top: 3px;
     background-color: #fff;
 }
-.tell{
-	width: 27%;
-}
+
 .w_email{
 	width: 78.487px;
 	height: 77.7px;
 	padding-bottom: 3px;
 }
-#email{
-	width: 43%;
-}
+
 .check_input01{
 	margin: 0px;
 	padding-top: 10px;
@@ -379,6 +401,7 @@ tbody{
 	color: #585858;
 	font-size: 12px;
 	font-weight: 400;
+	vertical-align: middle;
 }
 
 #alr{
@@ -415,7 +438,7 @@ option{
 	display: flex;
 	height: 40px;
 	padding-bottom: 0px;
-	margin-top: -40px;
+	margin-top: 40px;
 }
 .btn_box2_left{
     height: 40px;

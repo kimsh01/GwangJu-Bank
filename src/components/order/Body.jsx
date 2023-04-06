@@ -1,8 +1,7 @@
 import React from 'react';
 import { useState } from 'react';
 import { Routes, Router, Route, Link, Navigate, useNavigate } from 'react-router-dom'
-import './Body.css';
-import Deliver from '../order/Deliver';
+import styles from './Body.module.css';
 import Load from '../assets/imgs/명함주문_img/ajax-loader.gif';
 import Bank from '../assets/imgs/명함주문_img/bank_logo.jpg';
 import Check from '../assets/imgs/명함주문_img/check.png';
@@ -93,7 +92,7 @@ const Body = () => {
     return (
         <>
         <div id="resultDIV">
-            <div id="ajax_indicator" className='ajax_indicator'>
+            <div id="ajax_indicator" className={styles.ajax_indicator}>
                 <strong>
                     <p>이미지 생성중입니다. 다소 시간이 걸릴수 있습니다. 잠시만 기다려주세요.</p>
                     <img src={Load} alt='로딩창' />
@@ -101,48 +100,48 @@ const Body = () => {
             </div>
         </div>
 
-                <div className='b_container'>
-                    <div className='top_logo'>
-                        <img src={Bank} alt />
+                <div className={styles.b_container}>
+                    <div className={styles.top_logo}>
+                        <img src={Bank} alt='' />
                     </div>
-                <div className='top_left'>
+                <div className={styles.top_left}>
                     <dl>
                         <dd>
                             <p><b>광주은행</b> 로그인 하였습니다.</p>
                         </dd>
-                        <p className='s_p'>|</p>
+                        <p className={styles.s_p}>|</p>
                         <dd>
                             <a href='http://kjbank.qpop.deals/02_order/order03.php'><p>주문리스트</p></a>
                         </dd>
-                        <p className='s_p'>|</p>
+                        <p className={styles.s_p}>|</p>
                         <dd>
                             <a href='http://kjbank.qpop.deals/01_main/logout.php'><p>로그아웃</p></a>
                         </dd>
                     </dl>
-                    <b className='b_pr'>명함관련 문의사항 062-239-6752~3</b>
+                    <b className={styles.b_pr}>명함관련 문의사항 062-239-6752~3</b>
                 </div>
                 
-                <div className='content'>
+                <div className={styles.content}>
 
-                    <div className='linebox1'></div>
-                    <div className='roundbox5'></div>
+                    <div className={styles.linebox1}></div>
+                    <div className={styles.roundbox5}></div>
                     
-                    <div className='roundbox4'>
-                        <div className='sub_tit'>
-                            <div className='sub_img2'> <img src={Check} alt='' /> </div>
+                    <div className={styles.roundbox4}>
+                        <div className={styles.sub_tit}>
+                            <div className={styles.sub_img2}> <img src={Check} alt='' /> </div>
 
-                            <div className='sub_tit_p'> <p>내용입력 및 수정</p> </div>
+                            <div className={styles.sub_tit_p}> <p>내용입력 및 수정</p> </div>
                         </div>
 
-                            <div className='c_sub_tit_img'>
-                                <div className='sub_tit_img'>
-                                    <div className='f_name'>
+                            <div className={styles.c_sub_tit_img}>
+                                <div className={styles.sub_tit_img}>
+                                    <div className={styles.f_name}>
                                         <img src={Newn1} alt='' />
                                     </div>                                
                                 </div>
 
-                                <div className='sub_tit_img'>
-                                    <div className='s_name'>
+                                <div className={styles.sub_tit_img}>
+                                    <div className={styles.s_name}>
                                         <img src={Newn2} alt='' />
                                     </div>
                                 </div>
@@ -154,16 +153,16 @@ const Body = () => {
                             </div>
                             {/* -----------------------input----------------------------- */}
                             <form>
-                                <div className='step_01'>
-                                    <div className='round1_1'>
-                                        <div className='dv_left02'>
+                                <div className={styles.step_01}>
+                                    <div className={styles.round1_1}>
+                                        <div className={styles.dv_left02}>
 
-                                            <div className='sub_front'>
+                                            <div className={styles.sub_front}>
                                                 <p> &lt; 앞면 &gt; </p>
                                             </div>
                                             
                                             <div className='sub03_cont2 front'>
-                                                <table className='tb03'>
+                                                <table className={styles.tb03}>
                                                     <colgroup>
                                                         <col width='18%' />
                                                         <col width='32%' />
@@ -177,7 +176,7 @@ const Body = () => {
                                                                 <span> *</span>
                                                             </th>
                                                             <td id='td'>
-                                                                <input type='text' name='edit_' className='input02' id='essen1'  />
+                                                                <input type='text' name='edit_' className={styles.input02} id='essen1'  />
                                                             </td>
                                                             
                                                         </tr>
@@ -187,7 +186,7 @@ const Body = () => {
                                                                 <span> *</span>
                                                             </th>
                                                             <td id='td'>
-                                                                <input type='text' name='edit_' className='input02' id='essen2' />
+                                                                <input type='text' name='edit_' className={styles.input02} id='essen2' />
                                                                 <p id='p_blue'> 영문이름 작성은 샘플과 동일한 형식으로 입력하시기 바랍니다. </p>
                                                             </td>
                                                         </tr>
@@ -196,7 +195,7 @@ const Body = () => {
                                                                 지점
                                                             </th>
                                                             <td id='td'>
-                                                                <select id='op_value' name='select_dept1'     
+                                                                <select id={styles.op_value} name='select_dept1'     
                                                                     onChange={(e)=>{
                                                                         const selectedValue = e.target.value;
                                                                         const [spot , num , section , load] = selectedValue.split("<br/>")
@@ -204,8 +203,7 @@ const Body = () => {
                                                                         setNum(num);
                                                                         setSection(section);
                                                                         setLoad(load);
-                                                                    }}    
-                                                                >
+                                                                    }}>
                                                                     <option value="">선택하세요.</option>
                                                                     <option value="본점&lt;br/&gt;61470&lt;br/&gt; 광주광역시 동구&lt;br/&gt; 제봉로 225(대인동) 광주은행 본점">본점</option>
                                                                     <option value="각화동지점&lt;br/&gt;61137&lt;br/&gt; 광주광역시 북구&lt;br/&gt; 동문대로 280(각화동,광주화물터미널)">각화동지점</option>
@@ -354,7 +352,7 @@ const Body = () => {
                                                                     <option value="화정지점&lt;br/&gt;62045&lt;br/&gt; 광주광역시 서구&lt;br/&gt; 화정로 261(농성동)">화정지점</option>
                                                                     <option value="효천지점&lt;br/&gt;61765&lt;br/&gt; 광주 남구&lt;br/&gt; 효우2로 30|">효천지점</option>
                                                                 </select>
-                                                                <input type='text' className='input02' id='op_text' value={spot} />
+                                                                <input type='text' className={styles.input02} id='op_text' value={spot} />
                                                             </td>
                                                         </tr>
                                                         <tr>
@@ -362,7 +360,7 @@ const Body = () => {
                                                                 직급
                                                             </th>
                                                             <td id='td'>
-                                                                <input type='text' className='input02' />
+                                                                <input type='text' className={styles.input02} />
                                                             </td>
                                                         </tr>
                                                         <tr>
@@ -370,7 +368,7 @@ const Body = () => {
                                                                 전화번호
                                                             </th>
                                                             <td id='td'>
-                                                                <input type='text' className='input02 tell' name='tel1' value="" onKeyDown={numberCheck} /> - <input type='text' className='input02 tell' name='tel2' value={checkNumber} onKeyDown={numberCheck} /> - <input type='text' className='input02 tell' name='tel3' value={checkNumber} onKeyDown={numberCheck} />        
+                                                                <input type='text' className={styles.input02_1} name='tel1' value="" onKeyDown={numberCheck} /> - <input type='text' className={styles.input02_1} name='tel2' value={checkNumber} onKeyDown={numberCheck} /> - <input type='text' className={styles.input02_1} name='tel3' value={checkNumber} onKeyDown={numberCheck} />        
                                                             </td>
                                                         </tr>
                                                         <tr>
@@ -378,7 +376,7 @@ const Body = () => {
                                                                 팩스
                                                             </th>
                                                             <td id='td'>
-                                                                <input type='text' className='input02 tell' name='fax1' value={checkNumber} onKeyDown={numberCheck} /> - <input type='text' className='input02 tell' name='fax2' value={checkNumber} onKeyDown={numberCheck} /> - <input type='text' className='input02 tell' name='fax3' value={checkNumber} onKeyDown={numberCheck} />        
+                                                                <input type='text' className={styles.input02_1} name='fax1' value={checkNumber} onKeyDown={numberCheck} /> - <input type='text' className={styles.input02_1} name='fax2' value={checkNumber} onKeyDown={numberCheck} /> - <input type='text' className={styles.input02_1} name='fax3' value={checkNumber} onKeyDown={numberCheck} />        
                                                             </td>
                                                         </tr>
                                                         <tr>
@@ -386,7 +384,7 @@ const Body = () => {
                                                                 핸드폰
                                                             </th>
                                                             <td id='td'>
-                                                                <input type='text' className='input02 tell' name='phone1' value={checkNumber} onKeyDown={numberCheck} /> - <input type='text' className='input02 tell' name='phone2' value={checkNumber} onKeyDown={numberCheck} /> - <input type='text' className='input02 tell' name='phone3' value={checkNumber} onKeyDown={numberCheck} />        
+                                                                <input type='text' className={styles.input02_1} name='phone1' value={checkNumber} onKeyDown={numberCheck} /> - <input type='text' className={styles.input02_1} name='phone2' value={checkNumber} onKeyDown={numberCheck} /> - <input type='text' className={styles.input02_1} name='phone3' value={checkNumber} onKeyDown={numberCheck} />        
                                                             </td>
                                                         </tr>
                                                         <tr>
@@ -394,7 +392,7 @@ const Body = () => {
                                                                 이메일
                                                             </th>
                                                             <td id='td'>
-                                                                <input type='text' className=' input02' id='email' name='email_f' /> @ <input type='text' className=' input02' id='email' name='email_b' />
+                                                                <input type='text' className={styles.input02_2} id='email' name='email_f' /> @ <input type='text' className={styles.input02_2} id='email' name='email_b' />
                                                                 <p className='check_input01'>
                                                                     <input type='radio' value='직접입력' id='check_input02' /> <span id='span_fs'>직접입력</span>&nbsp;&nbsp;&nbsp;
                                                                     <input type='radio' value='kjbank.com' id='check_input02' checked="checked" /> <span id='span_fs'>kjbank.com</span>
@@ -459,13 +457,13 @@ const Body = () => {
                                     
                                 </div>
                                 {/* -------btn_box2------- */}
-                                    <div className='btn_box2'>
+                                    <div className={styles.btn_box2}>
 
-                                        <div className='btn_box2_left'>
+                                        <div className={styles.btn_box2_left}>
                                             <p>미리보기를 통해 입력한 내용이 정확한지 꼭 확인해주세요.</p>
                                         </div>
 
-                                        <div className='btn_box2_right'>
+                                        <div className={styles.btn_box2_right}>
                                             <a href=''>
                                                 <img src={Pre} alt='' />
                                             </a>
@@ -484,11 +482,6 @@ const Body = () => {
                         </div>                    
                     </div> 
                 </div>
-
-
-                <Routes>
-            <Route path="/deliver" element={<Deliver />} />
-          </Routes>
                 
                                 
         </>
