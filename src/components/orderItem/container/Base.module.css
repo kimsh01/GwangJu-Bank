@@ -1,0 +1,167 @@
+.base{
+    width: 1000px;
+    min-height: 1100px;
+    background-color: #FFF;
+    margin: 0 auto;
+}
+
+.top_logo {
+	width: 212px; 
+	height: 46px; 
+	margin-top: 0px;
+	padding-top: 10px;
+}
+.top_left{
+	display: flex;
+	justify-content: space-between;
+	height: 50px;
+    text-align: right;
+    margin-top: 50px;
+    width: 1000px;
+}
+.top_left dl{
+	display: flex;
+	margin-left: 20px;
+	margin-top: 0px;
+    padding: 0px;
+}
+.top_left dl dd{
+	padding-left: 4px;
+	height: 16.55px;
+}
+.top_left dl p{
+	margin: 0px;
+	height: 16.55px;
+}
+.s_p{
+	width: 5.9px;
+	padding-left: 4px;
+}
+
+.b_pr{
+	margin-top: 0px;
+	padding-right: 15px;
+}
+
+.title {
+	display: flex;
+	align-items: bottom;
+	width: 900px;
+	height: 23.91px;
+	margin-top: 28px;
+	margin-left: 20px;
+	margin-bottom: 10px;
+}
+
+.title_img img{
+	margin-left: 13px;
+}
+
+.title_p{
+	color: #5d5d5d;
+    font-size: 12pt;
+    font-weight: bold;
+    margin-top: -9px;
+    margin-left: 7px;
+    float: left;
+    display: inline;
+	font-family: 나눔고딕, 굴림;
+}
+
+.title_p2{
+	color: rgb(109, 121, 124);
+    font-size: 13px;
+	font-family: 나눔고딕, 굴림;
+    margin-top: -10px;
+    margin-left: 60px;
+    float: left;
+    display: block;
+}
+
+.title_1 {
+	display: flex;
+	align-items: bottom;
+	width: 900px;
+	height: 23.91px;
+	margin-top: 68px;
+	margin-left: 20px;
+	margin-bottom: 10px;
+}
+
+.title_radio{
+	margin-top: 25px;
+	margin-left: 38px;
+}
+
+.radio{
+	margin-left: 20px;
+}
+.radio_p{
+	font-size: 13px;
+	font-family: 나눔고딕, 굴림;
+	margin-left: 4px;
+	margin-right: 20px;
+	margin-top: 100px;
+}
+
+
+.f_b_table{
+	width: 98%;
+}
+.front_f_p{
+	color: #5d5d5d;
+    font-size: 12pt;
+    font-weight: bold;
+	margin-left: 25px;
+	margin-top: 43px;
+    float: left;
+	font-family: 나눔고딕, 굴림;
+}
+
+.front_b_p{
+	color: #5d5d5d;
+    font-size: 12pt;
+    font-weight: bold;
+	margin-right: 30px;
+	margin-top: 43px;
+	float: right;
+	font-family: 나눔고딕, 굴림;
+}
+
+.f_b_table img{
+	width: 445px;
+	border: 1px solid rgb(197,197,197);
+	margin-left: 25px;
+}
+
+/* ------------front---------------- */
+
+/* ------------back----------------- */
+
+.back01{
+	display: flex;
+	margin-top: 25px;
+	margin-left: 130px;
+}
+
+.back_text{
+	margin-top: 6px;
+	text-align: right;
+	font-size: 12px;
+	font-family: 나눔고딕, 굴림;
+}
+
+.back_btn{
+	margin-left: 20px;
+}
+
+.back_img01 img{
+	margin-top: 33px;
+	margin-left: 34px;
+	width: 429px;
+	height: 516.225px;
+}
+.back_img02 img{
+	margin-top: -270px;
+	margin-left: 3px;
+}

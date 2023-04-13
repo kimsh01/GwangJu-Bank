@@ -7,12 +7,14 @@ import List from '../src/components/list/List';
 import Complete from '../src/components/complete/Complete';
 import Login from '../src/components/login/Login';
 import KorW from '../src/components/card/korea/KorW';
+import Base from './components/orderItem/container/Base';
+
 function App() {
 
 
   return (
-      <div className='C_container'>
-          <Login />    
+      <div>
+          <Base />    
       </div>
   );
 }
