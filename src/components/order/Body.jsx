@@ -89,6 +89,13 @@ const Body = () => {
         setLoad(info);
     }
 
+    // LogOut
+    const [logOut , setLogOut] = useState("");
+
+    
+
+    
+
     return (
         <>
         <div id="resultDIV">
@@ -115,7 +122,7 @@ const Body = () => {
                         </dd>
                         <p className={styles.s_p}>|</p>
                         <dd>
-                            <a href='http://kjbank.qpop.deals/01_main/logout.php'><p>로그아웃</p></a>
+                            <Link to='/'><p id={styles.logOut}>로그아웃</p></Link>
                         </dd>
                     </dl>
                     <b className={styles.b_pr}>명함관련 문의사항 062-239-6752~3</b>

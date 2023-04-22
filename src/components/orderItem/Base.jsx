@@ -1,14 +1,34 @@
-import React from 'react';
+import React, { useState } from 'react';
+import { Routes, Link, Route, useNavigate } from 'react-router-dom';
 import styles from './Base.module.css';
-import Bank from '../img02/main_bank_logo.png';
-import Check from '../img02/check.png';
-import Bank_01 from '../img02/bank_01.jpg'
-import Bank_02 from '../img02/bank_02.jpg'
-import Back_btn from '../img02/requestbtn.png';
-import Pop03 from '../img02/pop_03.jpg';
-import Pop05 from '../img02/pop_05.jpg';
+import Login from '../login/Login.jsx';
+import Bank from './img02/main_bank_logo.png';
+import Check from './img02/check.png';
+import Bank_01 from './img02/bank_01.jpg'
+import Bank_02 from './img02/bank_02.jpg'
+import Back_btn from './img02/requestbtn.png';
+import Pop03 from './img02/pop_03.jpg';
+import Pop05 from './img02/pop_05.jpg';
 
 const Container = () => {
+
+    //Alert
+    function radio_alert(){
+        alert('임원진 전용 레이아웃으로 임원진 외에는 주문하실 수 없음을 양해 부탁드립니다.')
+    }
+
+    //Input radio
+    const [selectedOption, setSelectedOption] = useState('option1'); //useState(''기본값 지정해두면 됨)
+
+    function handleOptionChange(e) {
+        setSelectedOption(e.target.value);
+    }
+
+
+    //Navigate
+    const navigate = useNavigate();
+
+
     return (
         <>
             <div className={styles.base}>
@@ -26,7 +46,7 @@ const Container = () => {
                         </dd>
                         <p className={styles.s_p}>|</p>
                         <dd>
-                            <a href='http://kjbank.qpop.deals/01_main/logout.php'><p>로그아웃</p></a>
+                            <Link to="/">로그아웃</Link>
                         </dd>
                     </dl>
                     <b className={styles.b_pr}>명함관련 문의사항 062-239-6752~3</b>
@@ -43,16 +63,16 @@ const Container = () => {
                         </div>
                     </div>
 
-                    <div classNAme={styles.front_02}>
+                    <div className={styles.front_02}>
                         <div className={styles.title_1}>
                             <div className={styles.title_img}><img src={Check} alt='' /></div>
                             <div className={styles.title_p}><p>템플릿 선택</p></div>
                         </div>
                         <div className={styles.title_radio}>
-                            <input type='radio' id={styles.radio} checked /><span className={styles.radio_p}>사원 일반국문</span>
-                            <input type='radio' id={styles.radio} /><span className={styles.radio_p}>사원 국영문 혼용</span>
-                            <input type='radio' id={styles.radio} /><span className={styles.radio_p}>임원 일반국문</span>
-                            <input type='radio' id={styles.radio} /><span className={styles.radio_p}>임원 국영문 혼용</span>
+                            <input type='radio' id={styles.radio} value='option1' checked={selectedOption === 'option1'} onChange={handleOptionChange} /><span className={styles.radio_p}>사원 일반국문</span>
+                            <input type='radio' id={styles.radio} value='option2' checked={selectedOption === 'option2'} onChange={handleOptionChange} /><span className={styles.radio_p}>사원 국영문 혼용</span>
+                            <input type='radio' id={styles.radio} value='option3' checked={selectedOption === 'option3'} onClick={radio_alert} onChange={handleOptionChange} /><span className={styles.radio_p}>임원 일반국문</span>
+                            <input type='radio' id={styles.radio} value='option4' checked={selectedOption === 'option4'} onClick={radio_alert} onChange={handleOptionChange} /><span className={styles.radio_p}>임원 국영문 혼용</span>
                         </div>
                     </div>
 
@@ -113,7 +133,9 @@ const Container = () => {
                     
                 </div>
             </div>
-        
+
+
+
         </>
     );
 };

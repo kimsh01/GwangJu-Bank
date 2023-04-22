@@ -1,4 +1,5 @@
 import React from 'react';
+import { BrowserRouter as Routes, Route, Link, useNavigate } from 'react-router-dom';
 import styles from './Login.module.css';
 import Logo from '../assets/imgs/로그인_img/main_bank_logo.png';
 import Select from '../assets/imgs/로그인_img/select.png';
@@ -41,8 +42,9 @@ const Login = () => {
 						</div>
 							
 						
-
-						<button id={styles.btnLogin}>Login</button>
+						<Link to='/body'>
+							<button id={styles.btnLogin}>Login</button>
+						</Link>
 
 					</form>
 
