@@ -1,6 +1,6 @@
 import React from 'react';
 import { Routes, Route, Link } from 'react-router-dom'
-import './Deliver.module.css';
+import styles from './Deliver.module.css';
 import Bank from '../assets/imgs/명함주문_img/bank_logo.jpg';
 import Check from '../assets/imgs/명함주문_img/check.png';
 import Newn1 from '../assets/imgs/명함주문_img/202312122722kjbuser_2.jpg';
@@ -44,17 +44,17 @@ const Deliver = () => {
                         </dd>
                         <p className='s_p'>|</p>
                         <dd>
-                            <a href='http://kjbank.qpop.deals/02_order/order03.php'><p>주문리스트</p></a>
+                            <Link to='list'><p>주문리스트</p></Link>
                         </dd>
                         <p className='s_p'>|</p>
                         <dd>
-                            <a href='http://kjbank.qpop.deals/01_main/logout.php'><p>로그아웃</p></a>
+                            <Link to='/'><p>로그아웃</p></Link>
                         </dd>
                     </dl>
                     <b className='b_pr'>명함관련 문의사항 062-239-6752~3</b>
                 </div>
                 
-                <div className='content'>
+                <div className={styles.content}>
 
                     <div className='linebox1'></div>
                     <div className='roundbox5'></div>
@@ -182,7 +182,7 @@ const Deliver = () => {
                                                                     수량선택
                                                                 </th>
                                                                 <td>
-                                                                    <select>
+                                                                    <select className={styles.delivery_select}>
                                                                         <option value="100">1갑 - 100 매</option>
                                                                         <option value="200">2갑 - 200 매</option>
                                                                         <option value="300">3갑 - 300 매</option>
@@ -243,13 +243,13 @@ const Deliver = () => {
                                                     </div>
 
                                                     <div className='btn_box2_right'>
-                                                        <a href=''>
+                                                        <Link to='/body'>
                                                             <img src={Pre} alt='' />
-                                                        </a>
+                                                        </Link>
                                                         &nbsp;&nbsp;
-                                                        <a href=''>
+                                                        <Link to='/confirm'>
                                                             <img src={Next} alt='' onClick={checkBox}  />
-                                                        </a>
+                                                        </Link>
                                                         {/* btn <p> css 하는중 */}
                                                     </div>
                                                 </div>

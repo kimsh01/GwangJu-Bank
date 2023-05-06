@@ -1,4 +1,5 @@
 import React from 'react';
+import axios from 'axios';
 import { useState } from 'react';
 import { Routes, Router, Route, Link, Navigate, useNavigate } from 'react-router-dom'
 import styles from './Body.module.css';
@@ -14,13 +15,42 @@ import Next from '../assets/imgs/명함주문_img/btn_next.jpg';
 
 
 const Body = () => {
-    // page 이동 : next
     const navigate = useNavigate();
-    function moveD(){
-        navigate('/deliver')
-    }
+    
 
-    // page 이동 : next
+    //input data
+    const [userData, setUserData] = useState({
+        name: '',
+        nameEng: '',
+        department: '',
+        title: '',
+        officePhone: '',
+        officeFax: '',
+        email: '',
+        address1: '',
+        address2: ''    
+    })
+
+    const handleSubmit = (event) => {
+        event.preventDefault();
+        axios.post('http://127.0.0.1:8000/namecard/?id-2' , userData)
+          .then((response) => {
+            console.log(response);
+          })
+          .catch((error) => {
+            console.log(error);
+          });
+      }
+
+      const handleChange = (event) => {
+        setUserData({
+          ...userData,
+          [event.target.name]: event.target.value
+        });
+      }
+
+
+    //input data
 
     // input blank -> alert 띄우기
     function Blank(){
@@ -54,24 +84,20 @@ const Body = () => {
         
         else{
             window.confirm("주소가 제대로 입력되어있습니까?\n다시한번 확인하시기 바랍니다.\n※ 시안 교정을 한 발주건에 관해서는 인쇄사고 발생시 당사가 책임지지 않음을 말씀드립니다.")
-                return;
+            navigate('/dliver');
         } 
     }
-    function btnHandler(){
-        nextBtn();
-        moveD();
-    }
 
+  
     // numberCheck
 
-    const [checkNumber , setCheckNumber] = useState("");
+    const [checkNumber , setCheckNumber] = useState(Array(9).fill(""));
 
-    function numberCheck(e){
-        const newCheck = e.target.value;
-        if(!isNaN(newCheck)){
-            setCheckNumber(newCheck);
-        }
-    }
+    function handleInputChange(e) {
+        const inputValue = e.target.value;
+        const newCheck = inputValue.replace(/[^0-9]/g, ""); // 숫자 외 입력 막기
+        setCheckNumber(newCheck);
+      }
 
     // numberCheck
 
@@ -89,12 +115,32 @@ const Body = () => {
         setLoad(info);
     }
 
-    // LogOut
-    const [logOut , setLogOut] = useState("");
+    //handle radio checked
 
-    
+    const [checkedValue, setCheckedValue] = useState('option1');
+    const [checkedValue2, setCheckedValue2] = useState('option3');
+  
+    const handleOptionChange = (e) => {
+      setCheckedValue(e.target.value);
+    }; 
+  
+    const handleOptionChange2 = (e) => {
+      setCheckedValue2(e.target.value);
+    }; 
+    //handle radio checked
+        //email radio __ option2
+        const [emailBack, setEmailBack] = useState('');
 
-    
+        const handleEmail = (e) =>{
+            setCheckedValue(e.target.value); // 라디오 버튼 선택 값을 저장
+            if (e.target.value === 'option1') { // 직접 입력을 선택한 경우
+                setEmailBack(''); // 빈 문자열로 초기화
+            } else if (e.target.value === 'option2') { // kjbank.com을 선택한 경우
+                setEmailBack('kjbank.com'); // 이메일 뒷부분에 kjbank.com 저장
+            }          
+        }
+  
+      //email radio __ option2
 
     return (
         <>
@@ -118,7 +164,7 @@ const Body = () => {
                         </dd>
                         <p className={styles.s_p}>|</p>
                         <dd>
-                            <a href='http://kjbank.qpop.deals/02_order/order03.php'><p>주문리스트</p></a>
+                            <Link to='/list'><p>주문리스트</p></Link>
                         </dd>
                         <p className={styles.s_p}>|</p>
                         <dd>
@@ -159,7 +205,7 @@ const Body = () => {
                                 </a>
                             </div>
                             {/* -----------------------input----------------------------- */}
-                            <form>
+                            <form method='POST' action='http://127.0.0.1:8000/namecard/?id-2'>
                                 <div className={styles.step_01}>
                                     <div className={styles.round1_1}>
                                         <div className={styles.dv_left02}>
@@ -177,13 +223,14 @@ const Body = () => {
                                                     </colgroup>
 
                                                     <tbody>
+                                                        
                                                         <tr>
                                                             <th>
                                                                 이름
                                                                 <span> *</span>
                                                             </th>
                                                             <td id='td'>
-                                                                <input type='text' name='edit_' className={styles.input02} id='essen1'  />
+                                                                <input type='text'  name='edit_' className={styles.input02} id='essen1'  />
                                                             </td>
                                                             
                                                         </tr>
@@ -202,7 +249,7 @@ const Body = () => {
                                                                 지점
                                                             </th>
                                                             <td id='td'>
-                                                                <select id={styles.op_value} name='select_dept1'     
+                                                                <select id={styles.op_value} name='select_dept1' value={userData.department}
                                                                     onChange={(e)=>{
                                                                         const selectedValue = e.target.value;
                                                                         const [spot , num , section , load] = selectedValue.split("<br/>")
@@ -375,7 +422,7 @@ const Body = () => {
                                                                 전화번호
                                                             </th>
                                                             <td id='td'>
-                                                                <input type='text' className={styles.input02_1} name='tel1' value="" onKeyDown={numberCheck} /> - <input type='text' className={styles.input02_1} name='tel2' value={checkNumber} onKeyDown={numberCheck} /> - <input type='text' className={styles.input02_1} name='tel3' value={checkNumber} onKeyDown={numberCheck} />        
+                                                                <input type='text' className={styles.input02_1} name='tel1'  onChange={handleInputChange} /> - <input type='text' className={styles.input02_1} name='tel2' onChange={handleInputChange} /> - <input type='text' className={styles.input02_1} name='tel3' onChange={handleInputChange} />        
                                                             </td>
                                                         </tr>
                                                         <tr>
@@ -383,7 +430,7 @@ const Body = () => {
                                                                 팩스
                                                             </th>
                                                             <td id='td'>
-                                                                <input type='text' className={styles.input02_1} name='fax1' value={checkNumber} onKeyDown={numberCheck} /> - <input type='text' className={styles.input02_1} name='fax2' value={checkNumber} onKeyDown={numberCheck} /> - <input type='text' className={styles.input02_1} name='fax3' value={checkNumber} onKeyDown={numberCheck} />        
+                                                                <input type='text' className={styles.input02_1} name='fax1' onChange={handleInputChange} /> - <input type='text' className={styles.input02_1} name='fax2' onChange={handleInputChange} /> - <input type='text' className={styles.input02_1} name='fax3' onChange={handleInputChange} />        
                                                             </td>
                                                         </tr>
                                                         <tr>
@@ -391,7 +438,7 @@ const Body = () => {
                                                                 핸드폰
                                                             </th>
                                                             <td id='td'>
-                                                                <input type='text' className={styles.input02_1} name='phone1' value={checkNumber} onKeyDown={numberCheck} /> - <input type='text' className={styles.input02_1} name='phone2' value={checkNumber} onKeyDown={numberCheck} /> - <input type='text' className={styles.input02_1} name='phone3' value={checkNumber} onKeyDown={numberCheck} />        
+                                                                <input type='text' className={styles.input02_1} name='phone1'  onChange={handleInputChange} /> - <input type='text' className={styles.input02_1} name='phone2' onChange={handleInputChange} /> - <input type='text' className={styles.input02_1} name='phone3' onChange={handleInputChange} />        
                                                             </td>
                                                         </tr>
                                                         <tr>
@@ -399,10 +446,14 @@ const Body = () => {
                                                                 이메일
                                                             </th>
                                                             <td id='td'>
-                                                                <input type='text' className={styles.input02_2} id='email' name='email_f' /> @ <input type='text' className={styles.input02_2} id='email' name='email_b' />
+                                                                <span value={userData.email}>
+                                                                    <input type='text'  className={styles.input02_2} id='email' name='email_f' /> @ <input type='text' className={styles.input02_2} value={emailBack} id='email' name='email_b' />
+                                                                </span>
                                                                 <p className='check_input01'>
-                                                                    <input type='radio' value='직접입력' id='check_input02' /> <span id='span_fs'>직접입력</span>&nbsp;&nbsp;&nbsp;
-                                                                    <input type='radio' value='kjbank.com' id='check_input02' checked="checked" /> <span id='span_fs'>kjbank.com</span>
+                                                                        <input type='radio' name='option' value='option1' id='check_input02' checked={checkedValue === 'option1'} onChange={handleOptionChange} /> <span id='span_fs'>직접입력</span>&nbsp;&nbsp;&nbsp;
+                                                                        <input type='radio' name='option' value='option2' id='check_input02' checked={checkedValue === 'option2'} onChange={handleOptionChange} /> <span id='span_fs'>kjbank.com</span>
+                                                                    
+                                                                    {/* input태그를 span으로 감싸고 span에다 userData.email을 줘서 해야하나..? */}
                                                                 </p>
                                                                 <p id='p_blue'>※ 이메일은 아이디만 입력하시면 기본 셋팅된 주소가 입력됩니다.</p>
                                                             </td>
@@ -413,9 +464,10 @@ const Body = () => {
                                                             </th>
                                                             <td id='td'>
                                                                 <p className='check_input03'>
-                                                                    <input type='radio' id='check_input02' /> <span id='span_fs'>Y&nbsp;&nbsp;&nbsp;</span>
-                                                                    <input type='radio' id='check_input02' /> <span id='span_fs'>N</span>
+                                                                    <input type='radio' id='check_input02' name='option2' vlaue='option3' checked={checkedValue2 === 'option3'} onChange={handleOptionChange2} /> <span id='span_fs'>Y&nbsp;&nbsp;&nbsp;</span>
+                                                                    <input type='radio' id='check_input02' name='option2' vlaue='option4' checked={checkedValue2 === 'option4'} onChange={handleOptionChange2} /> <span id='span_fs'>N</span>
                                                                 </p>
+                                                                {/* handleEmail 함수 써서 option 선택시 자동으로 kjbank.com 입력되도록 */}
                                                             </td>
                                                         </tr>
                                                     </tbody>
@@ -471,16 +523,19 @@ const Body = () => {
                                         </div>
 
                                         <div className={styles.btn_box2_right}>
-                                            <a href=''>
+                                            <Link to='/login'>
                                                 <img src={Pre} alt='' />
-                                            </a>
+                                            </Link>
+
                                             &nbsp;&nbsp;
-                                            <span>
-                                            <a herf="" onClick={btnHandler}>
-                                                <img src={Next} alt='' />
-                                            </a>
-                                            </span>
-                                        </div>
+
+                                            <button id={styles.next_button} type='submit' onClick={nextBtn}>
+                                                
+                                                    <img src={Next} alt='' />
+                                                
+                                            </button>
+                                            
+                                        </div>  
 
                                     </div>
                                 {/* -------btn_box2------- */}

@@ -1,4 +1,6 @@
 import React from 'react';
+import axios from 'axios';
+import { useState } from 'react';
 import { BrowserRouter as Routes, Route, Link, useNavigate } from 'react-router-dom';
 import styles from './Login.module.css';
 import Logo from '../assets/imgs/로그인_img/main_bank_logo.png';
@@ -6,9 +8,38 @@ import Select from '../assets/imgs/로그인_img/select.png';
 import Pass from '../assets/imgs/로그인_img/pass.png';
 
 const Login = () => {
+const navigate = useNavigate();
+
 	function clickAdd(){
 		alert("Ctrl+D키를 누르시면 즐겨찾기에 추가하실 수 있습니다.")
 	}
+
+	// JWT
+	const [userId, setUserId] = useState('');
+	const [passWord, setPassWord] = useState('');
+
+	const handleSubmit = async (e) => {
+		e.preventDefault();
+	
+
+		try{
+			const response = await axios.post('', {
+				userId,
+				passWord,
+			});
+
+			const token = response.data.token;
+			// JWT 토큰을 쿠키에 저장
+			document.cookie = `token=${token}`;
+
+			navigate('/body');
+		} catch (error){
+			console.log(error);
+		}
+	}
+
+
+	// JWT
 
 	
 
@@ -29,22 +60,22 @@ const Login = () => {
 							<div className={styles.blockinput}>
 								<img src={Select} alt='' id='img02' />
 								
-								<select name="key" id="userid" className={styles.inp}>
-									<option value="kjbuser">광주은행</option>
-									<option value="kjbadmin">광주은행관리자</option>
+								<select name="key" id="userid" value={userId} onChange={(e) => setUserId(e.target.value)} className={styles.inp}>
+									<option value="user1">광주은행</option>
+									<option value="user2">광주은행관리자</option>
 								</select>
 							</div>
 
 							<div className={styles.blockinput}>      
 								<img src={Pass} alt='' id='img03' />
-								<input className={styles.login_input} name="value" id="password" type="password" placeholder="비밀번호" value="" />
+								<input className={styles.login_input} name="value" value={passWord} id="password" type="password" placeholder="비밀번호" onChange={(e) => setPassWord(e.target.value)}  />
 							</div>
 						</div>
 							
 						
-						<Link to='/body'>
+						<div onClick={handleSubmit}>
 							<button id={styles.btnLogin}>Login</button>
-						</Link>
+						</div>
 
 					</form>
 

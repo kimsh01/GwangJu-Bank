@@ -24,11 +24,11 @@ const Confirm = () => {
                         </dd>
                         <p className='s_p'>|</p>
                         <dd>
-                            <a href='http://kjbank.qpop.deals/02_order/order03.php'><p>주문리스트</p></a>
+                            <Link to='/list'><p>주문리스트</p></Link>
                         </dd>
                         <p className='s_p'>|</p>
                         <dd>
-                            <a href='http://kjbank.qpop.deals/01_main/logout.php'><p>로그아웃</p></a>
+                            <Link to='/'><p>로그아웃</p></Link>
                         </dd>
                     </dl>
                     <b className='b_pr'>명함관련 문의사항 062-239-6752~3</b>
@@ -194,13 +194,13 @@ const Confirm = () => {
                                     </div>
 
                                     <div className='btn_box2_right'>
-                                        <a href=''>
+                                        <Link to='/deliver'>
                                             <img src={Pre} alt='' />
-                                        </a>
+                                        </Link>
                                         &nbsp;&nbsp;
-                                        <a href=''>
+                                        <Link to='/complete'>
                                             <img src={Ok} alt=''  />
-                                        </a>
+                                        </Link>
                                     </div>
 
                                 </div>

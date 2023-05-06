@@ -13,15 +13,18 @@ function App() {
   return (
 
     <>
-      <Login />
-    </>
+      <Body />
   
-      // <Routes Base='/'>
-      //   <Route path='/' element={<Login />} />
-      //   <Route path='/body' element={<Body />} />
-      //   <Route path='/base' element={<Base />} />
-      //   <
-      // </Routes>
+       {/* <Routes Base='/'>
+         <Route path='/' element={<Login />} />
+         <Route path='/body' element={<Body />} />
+         <Route path='/base' element={<Base />} />
+         <Route path='/list' element={<Link />} />
+         <Route path='/deliver' element={<Deliver />} />
+      </Routes>  */}
+      {/* Routes를 사용하면 <Login /> 이 연속으로 두 페이지가 띄워짐 */}
+      {/* --> 이 문제는 따로 <></>를 사용하지 않고 Routes로만 구성되어야 됨. */}
+    </>
    
   );
 }

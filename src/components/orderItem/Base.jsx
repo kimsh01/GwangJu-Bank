@@ -42,7 +42,7 @@ const Container = () => {
                         </dd>
                         <p className={styles.s_p}>|</p>
                         <dd>
-                            <a href='http://kjbank.qpop.deals/02_order/order03.php'><p>주문리스트</p></a>
+                            <Link to='/list'><p>주문리스트</p></Link>
                         </dd>
                         <p className={styles.s_p}>|</p>
                         <dd>

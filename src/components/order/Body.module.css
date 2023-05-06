@@ -37,11 +37,20 @@ td {
 th{
 	color: #585858;
 }
-select {
-	height: 22px; color: #777; line-height: 138%; letter-spacing: 0pt; font-family: 돋움; font-size: 9pt;
-}
+
 #op_value{
+	width: 95%;
 	font-family: 돋움;
+	height: 22px;
+	background-color: #FFF;
+    color: rgb(119, 119, 119);
+    line-height: 138%;
+    letter-spacing: 0pt;
+    font-size: 10pt;
+    float: left;
+	margin-left: 0px;
+	padding: 0px;
+	border: 1px solid black;
 }
 input {
 	color: #777; 
@@ -112,7 +121,7 @@ a:hover { color: #208ec1; text-decoration: none; }
 .b_container{
 	margin: 0px auto;
     width: 1000px;
-    min-height: 1100px;
+    min-height: 1300px;
     height: 100%;
 	margin-top: 0px;
 	background-color: #FFF;
@@ -151,7 +160,7 @@ a:hover { color: #208ec1; text-decoration: none; }
 
 .content{
 	width: 100%;
-	min-height: 1106.91px;
+	min-height: 1100px;
     text-align: left;
     margin-top: 10px;
 }
@@ -462,4 +471,10 @@ option{
 	position: relative;
 	top: 10px;
 	margin-left: -30px;
+}
+
+#next_button{
+	margin-top: -1px;
+	opacity: 1;
+	box-shadow: none;
 }
