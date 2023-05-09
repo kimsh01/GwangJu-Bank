@@ -127,11 +127,12 @@ const Body = () => {
     const handleOptionChange2 = (e) => {
       setCheckedValue2(e.target.value);
     }; 
+
     //handle radio checked
         //email radio __ option2
         const [emailBack, setEmailBack] = useState('');
 
-        const handleEmail = (e) =>{
+        const handleEmailChanging = (e) =>{
             setCheckedValue(e.target.value); // 라디오 버튼 선택 값을 저장
             if (e.target.value === 'option1') { // 직접 입력을 선택한 경우
                 setEmailBack(''); // 빈 문자열로 초기화
@@ -450,10 +451,9 @@ const Body = () => {
                                                                     <input type='text'  className={styles.input02_2} id='email' name='email_f' /> @ <input type='text' className={styles.input02_2} value={emailBack} id='email' name='email_b' />
                                                                 </span>
                                                                 <p className='check_input01'>
-                                                                        <input type='radio' name='option' value='option1' id='check_input02' checked={checkedValue === 'option1'} onChange={handleOptionChange} /> <span id='span_fs'>직접입력</span>&nbsp;&nbsp;&nbsp;
-                                                                        <input type='radio' name='option' value='option2' id='check_input02' checked={checkedValue === 'option2'} onChange={handleOptionChange} /> <span id='span_fs'>kjbank.com</span>
-                                                                    
-                                                                    {/* input태그를 span으로 감싸고 span에다 userData.email을 줘서 해야하나..? */}
+                                                                        <input type='radio' name='option' value='option1' id='check_input02' checked={checkedValue === 'option1'} onChange={handleEmailChanging} /> <span id='span_fs'>직접입력</span>&nbsp;&nbsp;&nbsp;
+                                                                        <input type='radio' name='option' value='option2' id='check_input02' checked={checkedValue === 'option2'} onChange={handleEmailChanging} /> <span id='span_fs'>kjbank.com</span>                                                                  
+                                                                    {/* handleEmail 함수 써서 option 선택시 자동으로 kjbank.com 입력되도록 */}
                                                                 </p>
                                                                 <p id='p_blue'>※ 이메일은 아이디만 입력하시면 기본 셋팅된 주소가 입력됩니다.</p>
                                                             </td>
@@ -464,10 +464,9 @@ const Body = () => {
                                                             </th>
                                                             <td id='td'>
                                                                 <p className='check_input03'>
-                                                                    <input type='radio' id='check_input02' name='option2' vlaue='option3' checked={checkedValue2 === 'option3'} onChange={handleOptionChange2} /> <span id='span_fs'>Y&nbsp;&nbsp;&nbsp;</span>
-                                                                    <input type='radio' id='check_input02' name='option2' vlaue='option4' checked={checkedValue2 === 'option4'} onChange={handleOptionChange2} /> <span id='span_fs'>N</span>
+                                                                    <input type='radio' id='check_input02' name='option2' value='option3' checked={checkedValue2 === 'option3'} onChange={handleOptionChange2} /> <span id='span_fs'>Y&nbsp;&nbsp;&nbsp;</span>
+                                                                    <input type='radio' id='check_input02' name='option2' value='option4' checked={checkedValue2 === 'option4'} onChange={handleOptionChange2} /> <span id='span_fs'>N</span>
                                                                 </p>
-                                                                {/* handleEmail 함수 써서 option 선택시 자동으로 kjbank.com 입력되도록 */}
                                                             </td>
                                                         </tr>
                                                     </tbody>
