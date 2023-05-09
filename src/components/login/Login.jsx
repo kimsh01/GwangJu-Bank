@@ -73,9 +73,10 @@ const navigate = useNavigate();
 						</div>
 							
 						
-						<div onClick={handleSubmit}>
+						{/* <div onClick={handleSubmit}> */}
+						<Link to='/body'>
 							<button id={styles.btnLogin}>Login</button>
-						</div>
+						</Link>
 
 					</form>
 
