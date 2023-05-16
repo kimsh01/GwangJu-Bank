@@ -30,6 +30,15 @@ const Body = () => {
         address1: '',
         address2: ''    
     })
+    const [name, setName] = useState('');
+    const [nameEng, setNameEng] = useState('');
+    const [department, setDepartment] = useState('');
+    const [title, setTitle] = useState('');
+    const [officePhone, setOfficePhone] = useState('');
+    const [officeFax, setOfficeFax] = useState('');
+    const [email, setEmail] = useState('');
+    const [address1, setAddress1] = useState('');
+    const [address2, setAddress2] = useState('');
 
     const handleSubmit = (event) => {
         event.preventDefault();
@@ -231,7 +240,7 @@ const Body = () => {
                                                                 <span> *</span>
                                                             </th>
                                                             <td id='td'>
-                                                                <input type='text'  name='edit_' className={styles.input02} id='essen1'  />
+                                                                <input type='text'  name='edit_' vlaue={name} className={styles.input02} id='essen1' onChange={(e)=> setName(e.target.value)} />
                                                             </td>
                                                             
                                                         </tr>
@@ -241,7 +250,7 @@ const Body = () => {
                                                                 <span> *</span>
                                                             </th>
                                                             <td id='td'>
-                                                                <input type='text' name='edit_' className={styles.input02} id='essen2' />
+                                                                <input type='text' name='edit_' value={nameEng} className={styles.input02} id='essen2' onChange={(e)=> setNameEng(e.target.value)} />
                                                                 <p id='p_blue'> 영문이름 작성은 샘플과 동일한 형식으로 입력하시기 바랍니다. </p>
                                                             </td>
                                                         </tr>
@@ -250,7 +259,7 @@ const Body = () => {
                                                                 지점
                                                             </th>
                                                             <td id='td'>
-                                                                <select id={styles.op_value} name='select_dept1' value={userData.department}
+                                                                <select id={styles.op_value} name='select_dept1' value={department}
                                                                     onChange={(e)=>{
                                                                         const selectedValue = e.target.value;
                                                                         const [spot , num , section , load] = selectedValue.split("<br/>")
@@ -258,6 +267,7 @@ const Body = () => {
                                                                         setNum(num);
                                                                         setSection(section);
                                                                         setLoad(load);
+                                                                        setDepartment(e.target.value);
                                                                     }}>
                                                                     <option value="">선택하세요.</option>
                                                                     <option value="본점&lt;br/&gt;61470&lt;br/&gt; 광주광역시 동구&lt;br/&gt; 제봉로 225(대인동) 광주은행 본점">본점</option>
@@ -415,7 +425,7 @@ const Body = () => {
                                                                 직급
                                                             </th>
                                                             <td id='td'>
-                                                                <input type='text' className={styles.input02} />
+                                                                <input type='text' value={title} className={styles.input02} onChange={(e)=> setTitle(e.target.value)} />
                                                             </td>
                                                         </tr>
                                                         <tr>
@@ -423,7 +433,7 @@ const Body = () => {
                                                                 전화번호
                                                             </th>
                                                             <td id='td'>
-                                                                <input type='text' className={styles.input02_1} name='tel1'  onChange={handleInputChange} /> - <input type='text' className={styles.input02_1} name='tel2' onChange={handleInputChange} /> - <input type='text' className={styles.input02_1} name='tel3' onChange={handleInputChange} />        
+                                                                <input type='text' value={officePhone} className={styles.input02_1} name='tel1'  onChange={handleInputChange} /> - <input type='text' className={styles.input02_1} name='tel2' onChange={handleInputChange} /> - <input type='text' className={styles.input02_1} name='tel3' onChange={handleInputChange} />        
                                                             </td>
                                                         </tr>
                                                         <tr>
@@ -505,6 +515,7 @@ const Body = () => {
                                                                     <p id='p_red'>※ 위 우편번호 및 주소는 2014년 12월 기준 주소이므로 각 지점별최종 확인 바랍니다.</p>
                                                                     <p id='p_red'>※ 시안 교정을 한 발주건에 관해서는 인쇄사고 발생시 당사가책임지지 않음을 말씀드립니다.</p>
                                                                 </td>
+                                                                {/* Data -> Server Check :: console.log() value값 수정중 */}
                                                             </tr>
                                                         </tbody>
                                                     </table>
