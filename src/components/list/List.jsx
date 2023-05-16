@@ -1,6 +1,8 @@
 import React from 'react';
+import { useState } from 'react';
+import { Routes, Router, Route, Link, Navigate, useNavigate } from 'react-router-dom';
+import axios from 'axios';
 import '../common/Order.css';
-import Head from '../order/Head';
 import Bank from '../assets/imgs/명함주문_img/bank_logo.jpg';
 import Search from '../assets/imgs/주문리스트_img/searchbtn.png';
 import Plus from '../assets/imgs/주문리스트_img/btn_o_add.png';
@@ -8,6 +10,20 @@ import Cancel from '../assets/imgs/주문리스트_img/btn_o_cancel.png';
 import Ico from '../assets/imgs/주문리스트_img/ico_jpg.gif'; 
 
 const List = () => {
+    //PDF 파일 경로 주소 받기.
+    const [pdfUrl , setPdfUrl] = useState(null);
+
+    async function handlePdfClick() {
+        //백에서 API 호출하여 PDF 파일 가져오기
+        const response = await fetch(''); // 주소 입력해야함.
+        const blob = await response.blob();
+
+        //Blob URL 생성하여 상태 업데이트
+        const pdfBlobUrl = URL.createObjectURL(blob);
+        setPdfUrl(pdfBlobUrl);
+    }
+
+
     return (
         <>
             <div className='back_container'>
@@ -230,14 +246,14 @@ const List = () => {
 
                                         <div className="list_part2">
                                             <ul id="tab">
-                                                <a href=""><li className="p_over">전체 (3)</li></a>
-                                                <a href=""><li>승인대기 </li></a>
-                                                <a href=""><li>출력대기 </li></a>
-                                                <a href=""><li>출력중 </li></a>
-                                                <a href=""><li>배송준비중 </li></a>
-                                                <a href=""><li>배송중 </li></a>
-                                                <a href=""><li>배송완료 </li></a>
-                                                <a href=""><li>취소 </li></a>
+                                                <Link to=''><li className="p_over">전체 (3)</li></Link>
+                                                <Link to=''><li>승인대기 </li></Link>
+                                                <Link to=''><li>출력대기 </li></Link>
+                                                <Link to=''><li>출력중 </li></Link>
+                                                <Link to=''><li>배송준비중 </li></Link>
+                                                <Link to=''><li>배송중 </li></Link>
+                                                <Link to=''><li>배송완료 </li></Link>
+                                                <Link to=''><li>취소 </li></Link>
                                             </ul>
                                         </div>
 
@@ -277,9 +293,9 @@ const List = () => {
                                                                 <td>승인대기</td>
                                                                 <td>
                                                                     <span className="btn_blue small">
-                                                                        <a href="">
+                                                                        <Link to='' onClick={handlePdfClick}>
                                                                             <img src={Plus} alt="추가주문" />
-                                                                        </a>
+                                                                        </Link>
                                                                     </span>
                                                                 </td>
                                                             </tr>
@@ -292,9 +308,9 @@ const List = () => {
                                                                         <li>양면칼라</li>								 
                                                                         <li></li>							 
                                                                         <li className='list_simg'>
-                                                                            <a href="">
+                                                                            <Link to='' onClick={handlePdfClick} >
                                                                                 <img alt="jpeg" src={Ico} />
-                                                                            </a>
+                                                                            </Link>
                                                                         </li>								 
                                                                     </ul>
                                                                 </td>
@@ -331,9 +347,9 @@ const List = () => {
                                                                         <li>양면칼라</li>																 
                                                                         <li></li>							 
                                                                         <li className='list_simg'>
-                                                                            <a href="">
+                                                                            <Link to='' onClick={handlePdfClick}>
                                                                                 <img alt="jpeg" src={Ico}/>
-                                                                            </a>
+                                                                            </Link>
                                                                         </li>								 
                                                                     </ul>
                                                                 </td>

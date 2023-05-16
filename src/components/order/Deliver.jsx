@@ -44,7 +44,7 @@ const Deliver = () => {
                         </dd>
                         <p className='s_p'>|</p>
                         <dd>
-                            <Link to='list'><p>주문리스트</p></Link>
+                            <Link to='/list'><p>주문리스트</p></Link>
                         </dd>
                         <p className='s_p'>|</p>
                         <dd>
